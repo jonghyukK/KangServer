@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mac.kangserver.mapper.UserMapper">
+
+    <select id="selectAllUsers" resultType="com.mac.kangserver.dao.UserDao">
+        SELECT * FROM userList;
+    </select>
+
+    <select id="selectUserById" parameterType="java.lang.String" resultType="com.mac.kangserver.dao.UserDao">
+        SELECT * FROM userList where id=#{id};
+    </select>
+
+    <select id="createUser" parameterType="com.mac.kangserver.dao.UserDao">
+        INSERT INTO userList(id, pw1, pw2) VALUES(#{id}, #{pw1}, #{pw2});
+    </select>
+</mapper>
